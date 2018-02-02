@@ -16,7 +16,7 @@ matrix:
           apt-get install -y software-properties-common python-software-properties
           add-apt-repository -y ppa:brightbox/ruby-ng-experimental
           apt-get -y update
-          apt-get -y install sudo openssh-server git curl rake \
+          apt-get -y install build-essential sudo openssh-server git curl rake \
               ruby2.0 ruby2.0-dev bison libcurl4-openssl-dev libhiredis-dev libmarkdown2-dev \
               libcap-dev libcgroup-dev make libpcre3 libpcre3-dev libmysqlclient-dev
           git clone https://github.com/asdf-vm/asdf.git
