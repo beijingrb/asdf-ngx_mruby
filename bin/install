@@ -50,6 +50,15 @@ os_based_configure_options() {
                            --with-ld-opt=\"-L/usr/local/opt/openssl/lib/ -L/usr/local/opt/pcre/lib/\""
     fi
 
+    configure_options="$configure_options --with-http_stub_status_module \
+                                          --with-http_ssl_module \
+                                          --with-http_realip_module \
+                                          --with-http_addition_module \
+                                          --with-http_sub_module \
+                                          --with-http_gunzip_module \
+                                          --with-http_gzip_static_module \
+                                          --with-http_random_index_module \
+                                          --with-http_secure_link_module"
     echo $configure_options
 }
 
