@@ -48,5 +48,7 @@ Set a local version:
 asdf local ngx_mruby 1.20.1
 ```
 
+then `nginx` will be available in your shell path.
+
 More `asdf` command details to [asdf](https://github.com/asdf-vm/asdf) README.
 
