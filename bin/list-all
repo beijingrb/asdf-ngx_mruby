@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo $(
+  curl --silent https://raw.githubusercontent.com/beijingrb/ngx_mruby_versions/master/versions.txt
+)

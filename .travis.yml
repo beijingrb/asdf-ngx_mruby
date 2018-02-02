@@ -1,0 +1,39 @@
+language: c
+
+matrix:
+  include:
+    - os: linux
+      services:
+        - docker
+      script:
+        - |
+          bash -c "while true; do echo \$(date) - travis building ...; sleep 540; done" &
+          export PING_LOOP_PID=$!
+        - |
+          cat <<-EOF | docker run -i ubuntu:16.04 bash -
+          set -e
+          git clone https://github.com/asdf-vm/asdf.git
+          . asdf/asdf.sh
+          apt-get -y update
+          apt-get -y install sudo openssh-server git curl rake \
+              ruby2.0 ruby2.0-dev bison libcurl4-openssl-dev libhiredis-dev libmarkdown2-dev \
+              libcap-dev libcgroup-dev make libpcre3 libpcre3-dev libmysqlclient-dev
+          export ASDF_CONCURRENCY=4
+          asdf plugin-test ngx_mruby https://github.com/beijingrb/asdf-ngx_mruby 'nginx -v'
+          EOF
+      after_script:
+        - kill -9 $PING_LOOP_PID
+
+    - os: osx
+      before_script:
+        - git clone https://github.com/asdf-vm/asdf.git
+        - . asdf/asdf.sh
+        - brew install openssl pcre
+      script:
+        - |
+          bash -c "while true; do echo \$(date) - travis building ...; sleep 540; done" &
+          export PING_LOOP_PID=$!
+        - export ASDF_CONCURRENCY=4
+        - asdf plugin-test ngx_mruby https://github.com/beijingrb/asdf-ngx_mruby.git 'nginx -v'
+      after_script:
+        - kill -9 $PING_LOOP_PID
