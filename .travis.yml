@@ -10,7 +10,7 @@ matrix:
           bash -c "while true; do echo \$(date) - travis building ...; sleep 540; done" &
           export PING_LOOP_PID=$!
         - |
-          cat <<-EOF | docker run -i ubuntu:16.04 bash -
+          cat <<-EOF | docker run -i ubuntu:14.04 bash -
           set -e
           apt-get -y update
           apt-get install -y software-properties-common python-software-properties
