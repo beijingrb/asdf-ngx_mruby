@@ -31,7 +31,8 @@ matrix:
       before_script:
         - git clone https://github.com/asdf-vm/asdf.git
         - . asdf/asdf.sh
-        - brew install openssl pcre
+        - brew update
+        - brew install openssl pcre curl
       script:
         - |
           bash -c "while true; do echo \$(date) - travis building ...; sleep 540; done" &
