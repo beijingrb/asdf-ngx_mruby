@@ -33,6 +33,7 @@ matrix:
         - . asdf/asdf.sh
         - brew update
         - brew install openssl pcre curl
+        - cd /usr/local/include && ln -s ../opt/openssl/include/openssl .
       script:
         - |
           bash -c "while true; do echo \$(date) - travis building ...; sleep 540; done" &
