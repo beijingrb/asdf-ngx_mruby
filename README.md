@@ -23,7 +23,7 @@ apt-get install make bison build-essential \
 For macOS, you need use `homebrew` to install:
 
 ```bash
-brew install openssl pcre
+brew install openssl pcre curl
 ```
 
 Note: lots of versions may not work on `macOS` due to some build options.
